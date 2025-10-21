@@ -1,0 +1,38 @@
+﻿<Page x:Class="kurs_idrisov.View.VizoviPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="VizoviPage">
+
+    <Grid Background="Wheat">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <DataGrid Grid.Row="0" Margin="20" Background="#e0c470" ItemsSource="{Binding FilteredDoctors}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Дата" Binding="{Binding Data, StringFormat=d}" />
+                <DataGridTextColumn Header="Доктор" Binding="{Binding DoctorName}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button Content="Найти" Grid.Column="0" Margin="10" Command="{Binding FilterDoctorsCommand}" />
+            <DatePicker Grid.Column="1" SelectedDate="{Binding StartDate, Mode=TwoWay}" Margin="10" />
+            <TextBlock Grid.Column="2" Text="До" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" />
+            <DatePicker Grid.Column="3" SelectedDate="{Binding EndDate, Mode=TwoWay}" Margin="10" />
+        </Grid>
+    </Grid>
+</Page>

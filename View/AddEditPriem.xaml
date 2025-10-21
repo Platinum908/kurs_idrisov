@@ -1,0 +1,60 @@
+﻿<Window x:Class="kurs_idrisov.View.AddEditPriem"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        mc:Ignorable="d" 
+        d:DesignHeight="700" d:DesignWidth="800"
+        Title="AddEditPriem"
+        Background="Wheat">
+
+    <Grid Background="Wheat">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Введите дату приёма:" VerticalAlignment="Center" FontSize="20"/>
+        <DatePicker Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Margin="15" SelectedDate="{Binding Data}" />
+        <TextBlock Grid.Row="1" Text="Введите место:" VerticalAlignment="Center" FontSize="20"/>
+        <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="15" Text="{Binding Mesto}" />
+        <TextBlock Grid.Row="2" Text="Введите симптомы:" VerticalAlignment="Center" FontSize="20"/>
+        <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Margin="15" Text="{Binding Simptomi}" />
+        <TextBlock Grid.Row="3" Text="Введите диагноз:" VerticalAlignment="Center" FontSize="20"/>
+        <TextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Margin="15" Text="{Binding Diagnoz}" />
+        <TextBlock Grid.Row="4" Text="Введите назначение:" VerticalAlignment="Center" FontSize="20"/>
+        <TextBox Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" Margin="15" Text="{Binding Naznachenie}" />
+        <TextBlock Grid.Row="5" Text="Выберите пациента:" VerticalAlignment="Center" FontSize="20"/>
+        <ComboBox x:Name="ComboBoxPatientId" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" Margin="15" 
+          ItemsSource="{Binding Patient}" DisplayMemberPath="PatientName" 
+          SelectedValuePath="PatientId" SelectedValue="{Binding PatientId}" />
+        <TextBlock Grid.Row="6" Text="Выберите лекарство:" VerticalAlignment="Center" FontSize="20"/>
+        <ComboBox x:Name="ComboBoxDrugId" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" Margin="15" 
+          ItemsSource="{Binding Drug}" DisplayMemberPath="DrugName" 
+          SelectedValuePath="DrugId" SelectedValue="{Binding DrugId}" />
+        <TextBlock Grid.Row="7" Text="Выберите доктора:" VerticalAlignment="Center" FontSize="20"/>
+        <ComboBox x:Name="ComboBoxDoctorId" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" Margin="15" 
+          ItemsSource="{Binding Doctor}" DisplayMemberPath="DoctorName" 
+          SelectedValuePath="DoctorId" SelectedValue="{Binding DoctorId}" />
+
+        <Grid Grid.Row="8" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Подтвердить" Margin="20" Click="Button_Click"/>
+            <Button Content="Отмена" Margin="20" Grid.Column="1" Click="Button_Click_1"/>
+        </Grid>
+    </Grid>
+</Window>

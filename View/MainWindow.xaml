@@ -1,0 +1,44 @@
+﻿<Window x:Class="kurs_idrisov.MainWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:kurs_idrisov"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="1400" WindowState="Maximized">
+    <Grid Background="Wheat">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <UniformGrid Grid.Row="0" Grid.Column="1"  Columns="3">
+            <Button Content="Вызовы" Width="250" Margin="15" Click="Button_Click_4"/>
+            <Button Content="Болезни" Width="250" Margin="15" Click="Button_Click_5"/>
+            <Button Content="Эффекты"  Width="250" Margin="15" Click="Button_Click_6"/>
+        </UniformGrid>
+
+        <Grid Grid.Column="0" Grid.RowSpan="3" Background="Wheat">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="1" Margin="15" Click="Button_Click">Пациенты</Button>
+            <Button Grid.Row="2" Margin="15" Click="Button_Click_1">Доктора</Button>
+            <Button Grid.Row="3" Margin="15" Click="Button_Click_2">Приемы</Button>
+            <Button Grid.Row="4" Margin="15" Click="Button_Click_3">Лекарства</Button>
+        </Grid>
+        <Frame x:Name="FrameContainer" Grid.Column="1" Grid.Row="1"/>
+    </Grid>
+</Window>
